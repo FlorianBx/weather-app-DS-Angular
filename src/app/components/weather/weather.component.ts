@@ -30,8 +30,4 @@ export class WeatherComponent implements OnChanges {
       }
     );
   }
-
-  convertKelvinToCelsius(tempInKelvin: number) {
-    return Math.floor(tempInKelvin - 273.15);
-  }
 }
