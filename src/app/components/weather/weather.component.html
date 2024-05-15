@@ -1,12 +1,10 @@
 <div class="flex flex-col items-center">
-  <p>weather works!</p>
-  <div class="flex flex-col items-center p-4 border border-[#333] rounded">
+  <div class="flex flex-col items-center justify-center p-4 border border-[#333] rounded w-48 h-48">
     @if (weather) {
-      <img [src]="'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '.png'" alt="Weather icon">
       <h2>{{ weather.name }}</h2>
+      <img [src]="'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '@2x.png'" alt="Weather icon">
       <p>{{ convertKelvinToCelsius(weather.main.temp) }}°C</p>
       <p>{{ weather.weather[0].description }}</p>
-      <!-- <p>{{ weather.weather[0].icon }}</p> -->
     } @else {
       <p>No data</p>
     }

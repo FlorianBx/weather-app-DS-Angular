@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { Weather } from '../../models/weather.model';
 
@@ -9,18 +9,20 @@ import { Weather } from '../../models/weather.model';
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.css',
 })
-export class WeatherComponent implements OnInit {
-  city = 'paris';
+export class WeatherComponent implements OnChanges {
+  @Input() city: string;
   weather: Weather;
 
   constructor(private weatherService: WeatherService) {}
 
-  ngOnInit(): void {
-    this.serchWeather();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['city']) {
+      this.serchWeather();
+    }
   }
 
   serchWeather() {
-    this.weatherService.getWeather(this.city).subscribe((datas: any) => {
+    this.weatherService.getWeather(this.city ? this.city : 'paris').subscribe((datas: any) => {
       this.weather = datas;
       console.log(this.weather);
     });
