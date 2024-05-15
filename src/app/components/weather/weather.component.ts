@@ -11,6 +11,7 @@ import { Weather } from '../../models/weather.model';
 })
 export class WeatherComponent implements OnChanges {
   @Input() city: string;
+  errorMessage: string | null = null;
   weather: Weather;
 
   constructor(private weatherService: WeatherService) {}
@@ -22,10 +23,11 @@ export class WeatherComponent implements OnChanges {
   }
 
   serchWeather() {
-    this.weatherService.getWeather(this.city ? this.city : 'paris').subscribe((datas: any) => {
-      this.weather = datas;
-      console.log(this.weather);
-    });
+    this.weatherService.getWeather(this.city ? this.city : 'paris').subscribe(
+      (datas: any) => {
+        this.weather = datas;
+      }
+    );
   }
 
   convertKelvinToCelsius(tempInKelvin: number) {

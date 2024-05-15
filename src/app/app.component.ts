@@ -12,8 +12,4 @@ import { WeatherComponent } from './components/weather/weather.component';
 })
 export class AppComponent {
   title = 'weather-app';
-
-  getWeather(city: string) {
-    console.log(city);
-  }
 }
