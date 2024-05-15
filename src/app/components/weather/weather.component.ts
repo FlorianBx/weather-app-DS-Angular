@@ -1,11 +1,12 @@
 import { Component, OnChanges, SimpleChanges, Input } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
+import { KelvinToCelciusPipe } from '../../pipes/kelvin-to-celcius.pipe';
 import { Weather } from '../../models/weather.model';
 
 @Component({
   selector: 'app-weather',
   standalone: true,
-  imports: [],
+  imports: [KelvinToCelciusPipe],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.css',
 })
