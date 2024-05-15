@@ -1,1 +1,13 @@
-<p>weather works!</p>
+<div class="flex flex-col items-center">
+  <p>weather works!</p>
+  <div class="p-4 border border-[#333] rounded">
+    @if (weather) {
+      <h2>{{ weather.name }}</h2>
+      <p>{{ convertKelvinToCelsius(weather.main.temp) }}°C</p>
+      <p>{{ weather.weather[0].description }}</p>
+      <!-- <p>{{ weather.weather[0].icon }}</p> -->
+    } @else {
+      <p>No data</p>
+    }
+  </div>
+</div>

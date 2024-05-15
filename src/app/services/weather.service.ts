@@ -14,8 +14,6 @@ export class WeatherService {
   constructor() { }
 
   getWeather(city: string) {
-    console.log(city);
-    console.log('get request initiated');
     return this.http.get(`${API_URL}${city}&appid=${API_KEY}`);
   }
 }
